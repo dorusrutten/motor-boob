@@ -27,8 +27,7 @@ void loop() {
 // if the digital read from pin 8 is high (prob. anything higher then 0) then...
 if(digitalRead(8) == HIGH){
   //boob.write(0);
-  //Enable pin2 for the servo connection
-  boob.attach(2);
+  boob.attach(2); /*Enable pin2 for the servo connection*/
   delay(1000);
   Serial.print("1oob");
 }
@@ -37,8 +36,7 @@ if(digitalRead(8) == HIGH){
 else {
   delay(1000);
   Serial.print("dor");
-  // pin3 now is the connection to the servo (Disconnected)
-  boob.attach(3);
+  boob.attach(3); /*Pin 3 is now sending data to the servo to rotate (Disconnected)*/
 }
 
 // end loop
