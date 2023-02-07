@@ -20,6 +20,8 @@ void setup() {
   pinMode(4,OUTPUT);  /*Set pin 4 as output*/
   pinMode(5,OUTPUT); /*Set pin 5 as output*/
   pinMode(8,INPUT); /*Set pin 8 as an input*/
+  pinMode(9,INPUT); /*Set pin 9 as an input*/
+  pinMode(10,INPUT); /*Set pin 10 as an input*/
 }
 
 // loop with checking if the power is going back to the arduino and changing the state of the servomotor
@@ -29,28 +31,30 @@ void loop() {
 if(digitalRead(8) == HIGH){
   boob1.attach(2); /*Enable pin 2 for the servo connection*/  
   boob2.attach(3); /*Enable pin 3 for the servo connection*/
-  boob3.attach(4);// ebenbles pin 4 fir teh survo connection
-  boob4.attach(5); /*Enable pin 5 for the servo connection*/
-  delay(1);
-  Serial.print("on!");
+  boob3.detach();// ebenbles pin 4 fir teh survo connection
+  boob4.detach(); /*Enable pin 5 for the servo connection*/
+  Serial.print("knop 1 aan");
+  boob1.write(40);
 }
 
-if(digitalRead(9) == HIGH){
-Serial.print("knop 2 aan");
-boob1.attach(2);
-boob2.attach(3);
-boob2.write(180);
+else if(digitalRead(9) == HIGH){
+  Serial.print("knop 2 aan");
+  boob1.attach(2);
+  boob2.attach(3);
+  boob3.detach();
+  boob4.detach();
+  boob1.write(160);
 }
 
-// if(digitalRead(10) == HIGH){
-//   Serial.print("knop 3 aan");
-//   boob2.attach(3);
-//   boob2.attach(4);
-// } 
+else if(digitalRead(10) == HIGH){
+  Serial.print("knop 3 aan");
+  boob2.attach(3);
+  boob2.attach(4);
+  boob2.write(40);
+} 
 
 // if pin 8 is anything except HIGH (prob 1) then...
 else {
-  delay(1);
   Serial.print("off!");
   boob1.detach();
   boob2.detach();
