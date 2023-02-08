@@ -32,30 +32,49 @@ void loop() {
 if(digitalRead(8) == HIGH){
   boob1.attach(2); /*Enable pin 2 for the servo connection*/  
   boob2.attach(3); /*Enable pin 3 for the servo connection*/
+  boob3.attach(4); /*Enable pin 4 for the servo connection*/
+  boob4.attach(5); /*Enable pin 5 for the servo connection*/
   Serial.print("knop 1 aan");
   boob1.write(180);
+  boob2.write(180);
+  boob3.write(0);
+  boob4.write(0);
 }
 
 else if(digitalRead(9) == HIGH){
   Serial.print("knop 2 aan");
   boob1.attach(2);
   boob2.attach(3);
-  boob3.detach();
-  boob4.detach();
-  boob1.write(180);
+  boob3.attach(4);
+  boob4.attach(5);
+  boob1.write(0);
+  boob2.write(0);
+  boob3.write(180);
+  boob4.write(180);
 }
 
 else if(digitalRead(10) == HIGH){
   Serial.print("knop 3 aan");
+  boob1.attach(2);
   boob2.attach(3);
-  boob2.attach(4);
-  boob2.write(180);
+  boob3.attach(4);
+  boob4.attach(5);
+  boob1.write(180);
+  boob2.write(0);
+  boob3.write(180);
+  boob4.write(0);
 } 
 else if(digitalRead(11) == HIGH){
   Serial.print("knop 3 aan");
+  boob1.attach(2);
   boob2.attach(3);
-  boob2.attach(4);
-  boob2.write(180);
+  boob3.attach(4);
+  boob4.attach(5);
+  boob1.write(180);
+  boob2.write(0);
+  boob3.write(180);
+  boob4.write(0);
+}
 
 // if anything else is true then detach all motors and print off.
 else {
@@ -65,4 +84,4 @@ else {
   boob3.detach();
   boob4.detach();
 } // end loop
-} 
+}
