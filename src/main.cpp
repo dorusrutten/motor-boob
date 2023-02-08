@@ -34,7 +34,7 @@ void loop() {
 
 // if the digital read from pin 8 is high (prob. anything higher then 0) then...
 if(digitalRead(8) == HIGH){
-  Serial.print("knop 1 aan");
+  Serial.print("!1!");
   boob1.write(180);
   boob2.write(180);
   boob3.write(0);
@@ -42,7 +42,7 @@ if(digitalRead(8) == HIGH){
 }
 
 else if(digitalRead(9) == HIGH){
-  Serial.print("knop 2 aan");
+  Serial.print("@2@");
   boob1.write(0);
   boob2.write(0);
   boob3.write(180);
@@ -50,14 +50,14 @@ else if(digitalRead(9) == HIGH){
 }
 
 else if(digitalRead(10) == HIGH){
-  Serial.print("knop 3 aan");
+  Serial.print("#3#");
   boob1.write(180);
   boob2.write(0);
   boob3.write(180);
   boob4.write(0);
 } 
 else if(digitalRead(11) == HIGH){
-  Serial.print("knop 3 aan");
+  Serial.print("$4$");
   boob1.write(0);
   boob2.write(180);
   boob3.write(0);
@@ -66,6 +66,7 @@ else if(digitalRead(11) == HIGH){
 
 // if anything else is true then detach all motors and print off.
 else {
+  delay(100);
   Serial.print("off!");
   boob1.write(90);
   boob2.write(90);
